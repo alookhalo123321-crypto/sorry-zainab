@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Zainab 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background: radial-gradient(circle at top,#ff9a9e,#fad0c4);
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.card{
+  width:90%;
+  max-width:650px;
+  padding:30px;
+  border-radius:25px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(25px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.25);
+  transform: perspective(1000px) rotateX(5deg);
+  animation:fadeUp 1.5s ease;
+  text-align:center;
+}
+
+h1{
+  color:white;
+  margin-bottom:15px;
+}
+
+.text{
+  color:white;
+  font-size:14px;
+  line-height:1.7;
+  min-height:250px;
+}
+
+button{
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:#ff6b81;
+  color:white;
+  font-size:14px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.1);
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.heart{
+  position:absolute;
+  animation:float 6s linear infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(100vh) scale(0.5);}
+  100%{transform:translateY(-10vh) scale(1.3);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Sorry Zainab 💗</h1>
+  <div class="text" id="text"></div>
+  <button onclick="forgive()">Tap if you forgive me 🥺</button>
+</div>
+
+<!-- 💗 MUSIC (NO DOWNLOAD NEEDED) -->
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=romantic-ambient-piano-110997.mp3" type="audio/mp3">
+</audio>
+
+<script>
+const message = [
+"I know you're hurt… and honestly, I am too.",
+"But you shouldn’t have done that either… it really hurt me… wallahi bohat takleef hui.",
+"",
+"And I know you’re hurt a lot too… I’m really sorry meri jaan.",
+"",
+"We’ll fix everything… we’ll start again.",
+"I believe everything will be okay.",
+"",
+"Bas ab maan jaa na… please? 🥺",
+"",
+"Maar lena mujhe… gussa kar lena… daant lena…",
+"But please talk to me and let’s fix this…",
+"",
+"Jo kahegi us tarah sorry karunga… bas sab theek kar dete hain.",
+"",
+"I know I hurt you… I’m not perfect…",
+"But I really love you Zainab… literally.",
+"",
+"Bas naa… ab maan ja meri pandaaaa 🐼💗",
+"",
+"I can’t stay away…",
+"Har jagah tu hi tu hai…",
+"",
+"Everything feels incomplete without you…",
+"",
+"Sorry my babyyy 💗🫂",
+"",
+"Can we restart everything…? 🥺",
+"",
+"Bas ek 'haan' keh do…"
+];
+
+let i=0;
+function type(){
+  if(i < message.length){
+    document.getElementById("text").innerHTML += message[i] + "<br><br>";
+    i++;
+    setTimeout(type, 1200);
+  }
+}
+type();
+
+/* Hearts */
+function heart(){
+  let h=document.createElement("div");
+  h.innerHTML="💗";
+  h.className="heart";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(Math.random()*20+10)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+}
+setInterval(heart,300);
+
+/* Music play on first click */
+document.body.addEventListener("click", function(){
+  let music = document.getElementById("bgMusic");
+  music.volume = 0.4;
+  music.play();
+}, { once: true });
+
+function forgive(){
+  alert("Please maan jao na 🥺💗");
+}
+</script>
+
+</body>
+</html>
